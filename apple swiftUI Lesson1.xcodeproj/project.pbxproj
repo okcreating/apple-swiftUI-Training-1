@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C640B97B2C84889400F8A0D3 /* apple_swiftUI_Lesson1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C640B97A2C84889400F8A0D3 /* apple_swiftUI_Lesson1App.swift */; };
+		C640B97B2C84889400F8A0D3 /* LandmarkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C640B97A2C84889400F8A0D3 /* LandmarkApp.swift */; };
 		C640B97D2C84889400F8A0D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C640B97C2C84889400F8A0D3 /* ContentView.swift */; };
 		C640B97F2C84889500F8A0D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C640B97E2C84889500F8A0D3 /* Assets.xcassets */; };
 		C640B9822C84889500F8A0D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C640B9812C84889500F8A0D3 /* Preview Assets.xcassets */; };
+		C645FFB82C8A45DC0094813B /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C645FFB72C8A45DC0094813B /* CircleImage.swift */; };
+		C645FFBA2C8A475F0094813B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C645FFB92C8A475F0094813B /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C640B9772C84889400F8A0D3 /* apple swiftUI Lesson1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "apple swiftUI Lesson1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C640B97A2C84889400F8A0D3 /* apple_swiftUI_Lesson1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apple_swiftUI_Lesson1App.swift; sourceTree = "<group>"; };
+		C640B97A2C84889400F8A0D3 /* LandmarkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkApp.swift; sourceTree = "<group>"; };
 		C640B97C2C84889400F8A0D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C640B97E2C84889500F8A0D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C640B9812C84889500F8A0D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C645FFB72C8A45DC0094813B /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		C645FFB92C8A475F0094813B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +55,11 @@
 		C640B9792C84889400F8A0D3 /* apple swiftUI Lesson1 */ = {
 			isa = PBXGroup;
 			children = (
-				C640B97A2C84889400F8A0D3 /* apple_swiftUI_Lesson1App.swift */,
+				C640B97A2C84889400F8A0D3 /* LandmarkApp.swift */,
 				C640B97C2C84889400F8A0D3 /* ContentView.swift */,
 				C640B97E2C84889500F8A0D3 /* Assets.xcassets */,
+				C645FFB72C8A45DC0094813B /* CircleImage.swift */,
+				C645FFB92C8A475F0094813B /* MapView.swift */,
 				C640B9802C84889500F8A0D3 /* Preview Content */,
 			);
 			path = "apple swiftUI Lesson1";
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C640B97D2C84889400F8A0D3 /* ContentView.swift in Sources */,
-				C640B97B2C84889400F8A0D3 /* apple_swiftUI_Lesson1App.swift in Sources */,
+				C645FFBA2C8A475F0094813B /* MapView.swift in Sources */,
+				C640B97B2C84889400F8A0D3 /* LandmarkApp.swift in Sources */,
+				C645FFB82C8A45DC0094813B /* CircleImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
