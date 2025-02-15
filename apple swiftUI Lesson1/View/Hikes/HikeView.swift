@@ -32,7 +32,11 @@ struct HikeView: View {
                         .labelStyle(.iconOnly)
                         .imageScale(.large)
                         .rotationEffect(.degrees(showDetail ? 90 : 0))
+                     //   .animation(nil, value: showDetail) //Try turning off animation for the rotation by adding another animation modifier just above the scaleEffect modifier.
+                        .scaleEffect(showDetail ? 1.5 : 1)
                         .padding()
+                     //   .animation(.spring(), value: showDetail) //The animation modifier applies to all animatable changes within the views it wraps.
+                    //SwiftUI includes basic animations with predefined or custom easing, as well as spring and fluid animations. You can adjust an animation’s speed, set a delay before an animation starts, or specify that an animation repeats.
                 }
             }
 
