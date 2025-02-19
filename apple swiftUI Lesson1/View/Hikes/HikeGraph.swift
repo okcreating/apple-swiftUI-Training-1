@@ -40,6 +40,7 @@ struct HikeGraph: View {
                         range: observation[keyPath: path],
                         overallRange: overallRange
                     )
+                    .animation(.ripple(index: index)) //In HikeGraph, define a new ripple animation and apply it to each generated graph capsule.
                 }
                 .offset(x: 0, y: proxy.size.height * heightRatio)
             }
@@ -57,6 +58,15 @@ func rangeOfRanges<C: Collection>(_ ranges: C) -> Range<Double>
 
 func magnitude(of range: Range<Double>) -> Double {
     range.upperBound - range.lowerBound
+}
+
+extension Animation {
+    static func ripple(index: Int) -> Animation {
+        Animation.spring(dampingFraction: 0.5) //Switch the animation to a spring animation, with a reduced damping fraction to make the bars hop.
+            .speed(2) //Speed up the animation a bit, to shorten the time each bar takes to move to its new position.
+            .delay(0.03 * Double(index)) //Add a delay to each animation that’s based on the capsule’s position on the graph.
+
+    }
 }
 
 #Preview {
