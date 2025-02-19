@@ -26,13 +26,16 @@ struct HikeView: View {
                 Spacer()
 
                 Button {
-                    showDetail.toggle()
+                    withAnimation { //}(.easeInOut(duration: 4)) {
+                        //Wrap the call to showDetail.toggle() with a call to the withAnimation function. Both of the views affected by the showDetail property — the disclosure button and the HikeDetail view — now have animated transitions.
+                        showDetail.toggle()
+                    }
                 } label: {
                     Label("Graph", systemImage: "chevron.right.circle")
                         .labelStyle(.iconOnly)
                         .imageScale(.large)
                         .rotationEffect(.degrees(showDetail ? 90 : 0))
-                     //   .animation(nil, value: showDetail) //Try turning off animation for the rotation by adding another animation modifier just above the scaleEffect modifier.
+                        //.animation(nil, value: showDetail) //Try turning off animation for the rotation by adding another animation modifier just above the scaleEffect modifier.
                         .scaleEffect(showDetail ? 1.5 : 1)
                         .padding()
                      //   .animation(.spring(), value: showDetail) //The animation modifier applies to all animatable changes within the views it wraps.
@@ -42,8 +45,21 @@ struct HikeView: View {
 
             if showDetail {
                 HikeDetail(hike: hike)
+                    .transition(.moveAndFade)
+                //By default, views transition on- and offscreen by fading in and out. You can customize this transition by using the transition(_:) modifier.
             }
         }
+    }
+}
+
+extension AnyTransition {
+    static var moveAndFade: AnyTransition {
+       // AnyTransition.move(edge: .trailing)
+        .asymmetric(
+                    insertion: .move(edge: .trailing).combined(with: .opacity),
+                    removal: .scale.combined(with: .opacity)
+                )
+        // create custom transition
     }
 }
 
