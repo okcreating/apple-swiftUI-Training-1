@@ -17,9 +17,16 @@ struct CategoryHome: View {
         NavigationSplitView {
             //Add a NavigationSplitView to host the different categories. You use navigation split views along with NavigationLink instances and related modifiers to build hierarchical navigation structures in your app.
             List {
+                modelData.features[0].image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 200)
+                    .clipped()
+                    .listRowInsets(EdgeInsets())
                 ForEach(modelData.categories.keys.sorted(), id:\.self) { key in
-                    Text(key)
+                    CategoryRow(categoryName: key, items: modelData.categories[key]!)
                 }
+                .listRowInsets(EdgeInsets()) //Set the edge insets to zero on both kinds of landmark previews so the content can extend to the edges of the display.
             }
                 .navigationTitle("Featured") //Set the title of the navigation bar to Featured. The view showcases one or more featured landmarks at the top.
                 } detail: {

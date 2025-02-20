@@ -18,6 +18,10 @@ class ModelData {
             //add a computed categories dictionary, with category names as keys, and an array of associated landmarks for each key.
         )
     }
+
+    var features: [Landmark] {
+        landmarks.filter { $0.isFeatured }
+    }
 }
 
 func load<T: Decodable>(_ filename: String) -> T {
