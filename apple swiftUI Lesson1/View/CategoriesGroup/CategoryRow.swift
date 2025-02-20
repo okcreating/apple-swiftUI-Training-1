@@ -21,8 +21,14 @@ struct CategoryRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(items) { landmark in
-                        CategoryItem(landmark: landmark)
+                        NavigationLink {
+                            LandmarkDetail(landmark: landmark)
+                        } label: {
+                            CategoryItem(landmark: landmark)
+                            //Text that you pass as the label for a navigation link renders using the environment’s accent color, and images may render as template images. You can modify either behavior to best suit your design. Change the navigation appearance of the category items by applying the renderingMode(_:) and foregroundStyle(_:) modifiers (in CategoryItem view objects)
+                        }
                     }
+
                 }
             }
             .frame(height: 185)
