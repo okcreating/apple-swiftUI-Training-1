@@ -10,10 +10,17 @@
 import SwiftUI
 
 struct CategoryHome: View {
+
+    @Environment(ModelData.self) var modelData
+
     var body: some View {
         NavigationSplitView {
             //Add a NavigationSplitView to host the different categories. You use navigation split views along with NavigationLink instances and related modifiers to build hierarchical navigation structures in your app.
-                    Text("Hello, World!")
+            List {
+                ForEach(modelData.categories.keys.sorted(), id:\.self) { key in
+                    Text(key)
+                }
+            }
                 .navigationTitle("Featured") //Set the title of the navigation bar to Featured. The view showcases one or more featured landmarks at the top.
                 } detail: {
                     Text("Select a Landmark")
@@ -23,4 +30,5 @@ struct CategoryHome: View {
 
 #Preview {
     CategoryHome()
+        .environment(ModelData())
 }
