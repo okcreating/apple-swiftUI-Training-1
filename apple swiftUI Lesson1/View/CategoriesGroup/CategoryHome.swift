@@ -12,6 +12,7 @@ import SwiftUI
 struct CategoryHome: View {
 
     @Environment(ModelData.self) var modelData
+    @State private var showingProfile = false
 
     var body: some View {
         NavigationSplitView {
@@ -28,7 +29,19 @@ struct CategoryHome: View {
                 }
                 .listRowInsets(EdgeInsets()) //Set the edge insets to zero on both kinds of landmark previews so the content can extend to the edges of the display.
             }
+                .listStyle(.inset) // Add the listStyle modifier to pick a list style that better suits the content.
                 .navigationTitle("Featured") //Set the title of the navigation bar to Featured. The view showcases one or more featured landmarks at the top.
+                .toolbar { //add a user profile button to the navigation bar using the toolbar modifier, and present the ProfileHost view when the user taps it.
+                    Button {
+                        showingProfile.toggle()
+                    } label: {
+                        Label("User Profile", systemImage: "person.crop.circle")
+                    }
+                }
+                .sheet(isPresented: $showingProfile) {
+                    ProfileHost()
+                        .environment(modelData)
+                }
                 } detail: {
                     Text("Select a Landmark")
                 }
