@@ -28,7 +28,9 @@ struct ProfileHost: View {
                 ProfileSummary(profile: modelData.profile) 
                 //To avoid updating the global app state before confirming any edits — such as while the user enters their name — the editing view operates on a copy of itself.
             } else {
-                Text("Profile editor")
+                //Text("Profile editor")
+                ProfileEditor(profile: $draftProfile)
+                //Update the conditional content in ProfileHost to include the profile editor and pass along the profile binding. Now the edit profile view displays when you tap Edit.
             }
         }
         .padding()
