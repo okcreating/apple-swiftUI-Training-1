@@ -17,6 +17,13 @@ struct ProfileHost: View {
         //Text("Profile for: \(draftProfile.username)")
         VStack(alignment: .leading, spacing: 20) {
             HStack {
+                if editMode?.wrappedValue == .active {
+                    Button("Cancel", role: .cancel) {
+                        draftProfile = modelData.profile
+                        editMode?.animation().wrappedValue = .inactive
+                        //Add a cancel button to ProfileHost. Unlike the Done button that EditButton provides, the Cancel button doesn’t apply the edits to the real profile data in its closure.
+                    }
+                }
                 Spacer()
                 EditButton() //Create an Edit button that toggles the environment’s editMode value on and off. The EditButton controls the same editMode environment value that you accessed in the previous step
 
@@ -31,6 +38,12 @@ struct ProfileHost: View {
                 //Text("Profile editor")
                 ProfileEditor(profile: $draftProfile)
                 //Update the conditional content in ProfileHost to include the profile editor and pass along the profile binding. Now the edit profile view displays when you tap Edit.
+                    .onAppear {
+                        draftProfile = modelData.profile
+                    }
+                    .onDisappear {
+                        modelData.profile = draftProfile
+                    }
             }
         }
         .padding()
